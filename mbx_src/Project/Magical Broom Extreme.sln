@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Magical Broom Extreme", "Magical Broom Extreme.vcproj", "{C9D1FBB6-788D-4A0C-A03E-A0B3C375CED2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C9D1FBB6-788D-4A0C-A03E-A0B3C375CED2}.Debug.ActiveCfg = Debug|Win32
+		{C9D1FBB6-788D-4A0C-A03E-A0B3C375CED2}.Debug.Build.0 = Debug|Win32
+		{C9D1FBB6-788D-4A0C-A03E-A0B3C375CED2}.Release.ActiveCfg = Release|Win32
+		{C9D1FBB6-788D-4A0C-A03E-A0B3C375CED2}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

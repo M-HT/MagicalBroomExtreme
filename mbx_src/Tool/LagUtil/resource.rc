@@ -1,0 +1,133 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "ファイル"
+    BEGIN
+        MENUITEM "画像ファイルを開く",          ID_OPENBMP
+        MENUITEM "α用画像ファイルを開く",      ID_OPENALPHA
+        MENUITEM "新規保存",                    ID_SAVE
+        MENUITEM "追記保存",                    ID_SAVEADD
+        MENUITEM "32Bit BMPで保存",             ID_SAVE32BMP
+        MENUITEM "名前変更",                    ID_RENAME
+        MENUITEM "終了",                        ID_CLOSE
+    END
+    POPUP "各種処理"
+    BEGIN
+        MENUITEM "カラーキー解除",              ID_COLORKEY
+        MENUITEM "バッチ処理",                  ID_BATCH
+        MENUITEM "左右反転",                    IR_CHANGE_LR
+        MENUITEM "上下反転",                    ID_CHANGE_UD
+        MENUITEM "ネガポジ反転",                ID_REVERSE
+    END
+    POPUP "ピクセルフォーマット"
+    BEGIN
+        MENUITEM "A4R4G4B4",                    ID_PIXEL_A4R4G4B4
+        MENUITEM "A8R8G8B8",                    ID_PIXEL_A8R8G8B8, CHECKED
+        MENUITEM "A16R16G16B16",                ID_PIXEL_A16R16G16B16
+        MENUITEM "ARGB_FLOAT",                  ID_PIXEL_FLOAT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DLG_NAME DIALOG DISCARDABLE  0, 0, 121, 49
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "名前変更"
+FONT 9, "ＭＳ ゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,28,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,64,28,50,14
+    EDITTEXT        IDC_EDIT_RENAME,7,7,107,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "IDD_DLG_NAME", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 114
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
