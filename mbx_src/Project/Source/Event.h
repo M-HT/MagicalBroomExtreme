@@ -16,6 +16,7 @@
 //======================================================================================
 #include "Base.h"
 #include "CharaBase.h"
+#include <stdint.h>
 
 
 //======================================================================================
@@ -23,12 +24,12 @@
 //======================================================================================
 typedef struct EVENTDATA
 {
-	short Time;
-	short Type;
-	short Sx;
-	short Sy;
-	short Temp[2];
-	long Life;
+	int16_t Time;
+	int16_t Type;
+	int16_t Sx;
+	int16_t Sy;
+	int16_t Temp[2];
+	int32_t Life;
 }
 EVENTDATA, *LPEVENTDATA;
 

@@ -16,7 +16,7 @@
 #include "EnemyShot.h"
 #include "Application.h"
 #include "Sound.h"
-
+#include <cmath>
 
 long CENEMYSHOT::ShotCounter;
 

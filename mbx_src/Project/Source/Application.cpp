@@ -21,12 +21,13 @@
 #include "Title.h"
 #include "Window.h"
 #include "Bonus.h"
-#include "Bg.h"
+#include "BG.h"
 #include "Snow.h"
 #include "Scroll.h"
 #include "Parts.h"
 #include "Sound.h"
 #include "Voice.h"
+#include <cstring>
 
 
 //======================================================================================
@@ -49,18 +50,18 @@ LPCSPRITE CApplication::EffectList[EFFECT_MAX];
 unsigned long CApplication::EffectNum;
 
 // スコアデータ
-SCOREDATA CApplication::ScoreData[10] = 
+SCOREDATA CApplication::ScoreData[10] =
 {
-	"RENGE",	1000000,
-	"AYAME",	800000,
-	"KIKYOU",	500000,
-	"MADOKA",	300000,
-	"KASUMI",	100000,
-	"SAKURA",	80000,
-	"YURI",		50000,
-	"MOMIJI",	30000,
-	"SUMIRE",	10000,
-	"HANIWA",	1,
+	{"RENGE",	1000000},
+	{"AYAME",	800000},
+	{"KIKYOU",	500000},
+	{"MADOKA",	300000},
+	{"KASUMI",	100000},
+	{"SAKURA",	80000},
+	{"YURI",		50000},
+	{"MOMIJI",	30000},
+	{"SUMIRE",	10000},
+	{"HANIWA",	1},
 };
 
 // 関数テーブル
@@ -237,7 +238,7 @@ void CApplication::SceneLogo( void )
 		{
 			// ロゴ
 			RECT src = { 0, 411, 256, 488 };
-			RECT dest = { 320-128, 240-40, 320+128, 240+37 }; 
+			RECT dest = { 320-128, 240-40, 320+128, 240+37 };
 			SubGraphic->BlitToTarget( &dest, &src, D3DCOLOR_XRGB(255,255,255), BLEND_NORMAL );
 			// 徐々にフェードイン
 			SetFade( D3DCOLOR_ARGB(FadeLevel,0,0,0) );
@@ -614,7 +615,7 @@ void CApplication::SceneRanking( void )
 		long py = 85 + (i*38);
 		char score[11] = "";
 		char *name = ScoreData[i].Name;
-		sprintf( score, "%010d", ScoreData[i].Score );
+		sprintf( score, "%010d", (int)ScoreData[i].Score );
 
 		long rot2 = rot1;
 
@@ -927,7 +928,7 @@ void CApplication::SceneClear( void )
 {
 	static long Px, Py, Sx, Sy, Time;
 	static unsigned long Gold;
-	static char Name[10] = "";
+	//static char Name[10] = "";
 
 	//------------------------------------------------------------------------------- STGパート背景
 	if ( ScenePhase < 5 )
@@ -1098,7 +1099,7 @@ bool CApplication::NameEntry( unsigned long gold )
 	LunaEffect::Gradation( &dest, color );
 	LunaEffect::End();
 
-	sprintf( GoldStr, "%010d", gold );
+	sprintf( GoldStr, "%010d", (int)gold );
 
 	switch ( Phase )
 	{
@@ -1137,7 +1138,7 @@ bool CApplication::NameEntry( unsigned long gold )
 			// 名前データコンバート
 			for ( long i = 0; i < 8; i++ )
 			{
-				Name[i] = StrTbl[Name[i]];
+				Name[i] = StrTbl[(unsigned char) Name[i]];
 			}
 			if ( Name[0] == '\0' ) strcpy( Name, "AYAME" );
 			// データ保存
@@ -1175,7 +1176,7 @@ bool CApplication::NameEntry( unsigned long gold )
 	// 名前描画
 	for ( long i = 0; i < Cursor+1; i++ )
 	{
-		static long cnt = 0;
+		//static long cnt = 0;
 		long num = Name[i];
 		D3DCOLOR c = D3DCOLOR_XRGB(255,255,255);
 
@@ -1567,7 +1568,7 @@ void CApplication::AllHitCheck( void )
 								p->Damage( p1->Power );
 								goto NEXT;
 							}
-						}						
+						}
 						if ( p1->Sort == SORT_ENEMYSHOT )
 						{
 							POLYGON2D poly1 = { p->HitCount, p->lpHitPt };
@@ -1631,9 +1632,9 @@ NEXT:
 						long num = p1->HitCount-1;
 						for ( long i = 0; i < num; i++ )
 						{
-							LINE2D l = { 
-								p2->lpHitPt[i+0].x, p2->lpHitPt[i+0].y,
-								p2->lpHitPt[i+1].x, p2->lpHitPt[i+1].y
+							LINE2D l = {
+								{p2->lpHitPt[i+0].x, p2->lpHitPt[i+0].y},
+								{p2->lpHitPt[i+1].x, p2->lpHitPt[i+1].y}
 							};
 							POLYGON2D poly = { p1->HitCount, p1->lpHitPt };
 							if ( LunaCollision::Line_Polygon( l, poly ) )

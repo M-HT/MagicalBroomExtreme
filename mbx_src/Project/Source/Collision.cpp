@@ -14,6 +14,7 @@
 //	include
 //======================================================================================
 #include "Collision.h"
+#include <algorithm>
 
 
 //======================================================================================
@@ -174,10 +175,10 @@ bool Collision::Intersect( LPHITPOINT pt11, LPHITPOINT pt12, LPHITPOINT pt21, LP
 bool Collision::Straddle( LPLINEDATA l1, LPLINEDATA l2 )
 {
 	// ü•ªl1,l2‚ð‘ÎŠpü‚Æ‚·‚é‚Q‚Â‚Ì’·•ûŒ`‚ªŒð‚í‚ç‚È‚¢ê‡Aü•ªl1,l2‚ÍŒð‚í‚ç‚È‚¢
-	if ( min(l1->x1,l1->x2) > max(l2->x1,l2->x2) ) return 0;
-	if ( min(l1->y1,l1->y2) > max(l2->y1,l2->y2) ) return 0;
-	if ( min(l2->x1,l2->x2) > max(l1->x1,l1->x2) ) return 0;
-	if ( min(l2->y1,l2->y2) > max(l1->y1,l1->y2) ) return 0;
+	if ( std::min(l1->x1,l1->x2) > std::max(l2->x1,l2->x2) ) return 0;
+	if ( std::min(l1->y1,l1->y2) > std::max(l2->y1,l2->y2) ) return 0;
+	if ( std::min(l2->x1,l2->x2) > std::max(l1->x1,l1->x2) ) return 0;
+	if ( std::min(l2->y1,l2->y2) > std::max(l1->y1,l1->y2) ) return 0;
 
 	long n1 = Side( l2->x1, l2->y1, l1 );
 	long n2 = Side( l2->x2, l2->y2, l1 );

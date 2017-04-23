@@ -19,6 +19,7 @@
 #include "Enemy.h"
 #include "Application.h"
 #include "Sound.h"
+#include <cstring>
 
 
 //======================================================================================

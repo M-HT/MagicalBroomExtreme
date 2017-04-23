@@ -42,7 +42,7 @@ CTITLE::CTITLE( float x, float y, long no ) : CSPRITE( SORT_NULL )
 //======================================================================================
 bool CTITLE::Action( void )
 {
-	D3DCOLOR color;
+	//D3DCOLOR color;
 
 	//------------------------------------------
 	// èàóù
@@ -74,14 +74,14 @@ bool CTITLE::Action( void )
 		// ï`âÊà íuê›íË
 		SetRect( &Dest, (long)Px-96, (long)y1-24, (long)Px+96, (long)y1+24 );
 		SetRect( &Src, 0, 140+No*48, 192, 140+No*48+48 );
-		color = D3DCOLOR_XRGB(192,192,192);
+		//color = D3DCOLOR_XRGB(192,192,192);
 	}
 	else
 	{
 		// ï`âÊà íuê›íË
 		SetRect( &Dest, (long)Px-96, (long)Py-24, (long)Px+96, (long)Py+24 );
 		SetRect( &Src, 0, 140+No*48, 192, 140+No*48+48 );
-		color = D3DCOLOR_XRGB(48,48,48);
+		//color = D3DCOLOR_XRGB(48,48,48);
 	}
 
 	return bDeath;

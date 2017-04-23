@@ -150,14 +150,14 @@ void CCOMBO::Add( void )
 	{
 		Combo++;
 		char buff[5] = "";
-		sprintf( buff, "%04d", Combo );
+		sprintf( buff, "%04d", (unsigned int) Combo );
 		for (  long i = 0; i < 4; i++ )
 		{
 			ComboStr[i] = (char)(buff[i] - '0');
 			Time[i] = 0;
 			Angle[i] = i*512;
 			Phase[i] = 0;
-		}		
+		}
 	}
 	Count = 0;
 	ComboTimer = 180;

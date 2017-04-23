@@ -188,7 +188,7 @@ bool CWINDOW::Action( void )
 		GoldAdd = 0;
 	}
 	// スコアを文字列に変換
-	sprintf( buff, "%010d", TempGold );
+	sprintf( buff, "%010d", (int)TempGold );
 	// 1桁ずつ表示
 	for ( long i = 0; i < 10; i++ )
 	{
@@ -209,7 +209,7 @@ bool CWINDOW::Action( void )
 		ScoreAdd = 0;
 	}
 	// スコアを文字列に変換
-	sprintf( buff, "%010d", TempScore );
+	sprintf( buff, "%010d", (int)TempScore );
 	// 1桁ずつ表示
 	for ( long i = 0; i < 10; i++ )
 	{
@@ -245,7 +245,7 @@ bool CWINDOW::Action( void )
 		}
 	}
 	// レートを文字列に変換
-	sprintf( buff, "%05d", Rate );
+	sprintf( buff, "%05d", (int)Rate );
 	// 1桁ずつ表示
 	for ( long i = 0; i < 4; i++ )
 	{

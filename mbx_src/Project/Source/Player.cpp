@@ -29,6 +29,7 @@
 #include "Laser.h"
 #include "LaserFx.h"
 #include "Voice.h"
+#include <cmath>
 
 
 //======================================================================================
@@ -322,7 +323,7 @@ bool CPLAYER::Action( void )
 				//=================================================
 				if ( NoDamageTimer > 0 )
 				{
-					NoDamageTimer--;	
+					NoDamageTimer--;
 					if ( NoDamageTimer == 0 )
 					{
 						bHit = true;

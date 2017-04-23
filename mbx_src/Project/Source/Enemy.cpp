@@ -30,7 +30,7 @@
 //======================================================================================
 // GLOBAL
 //======================================================================================
-bool (CENEMY::*CENEMY::ActionTbl[20])( void ) = 
+bool (CENEMY::*CENEMY::ActionTbl[20])( void ) =
 {
 	&CENEMY::Action000,
 	&CENEMY::Action001,
@@ -54,7 +54,7 @@ bool (CENEMY::*CENEMY::ActionTbl[20])( void ) =
 	&CENEMY::Action019,
 };
 
-bool (CENEMY::*CENEMY::DeathTbl[20])( void ) = 
+bool (CENEMY::*CENEMY::DeathTbl[20])( void ) =
 {
 	&CENEMY::Death000,
 	&CENEMY::Death001,
@@ -78,7 +78,7 @@ bool (CENEMY::*CENEMY::DeathTbl[20])( void ) =
 	&CENEMY::Death019,
 };
 
-void (CENEMY::*CENEMY::DamageTbl[20])( long pow ) = 
+void (CENEMY::*CENEMY::DamageTbl[20])( long pow ) =
 {
 	&CENEMY::Damage000,
 	&CENEMY::Damage001,
@@ -246,7 +246,7 @@ void CENEMY::Draw( void )
 void CENEMY::ActionSubZako( long no, bool shot )
 {
 	//-------------------------------------------------------------- ‹C‚Ü‚®‚ê‚Å’e”­ŽË
-	if ( bHit && shot ) 
+	if ( bHit && shot )
 	{
 		if ( RAND(0,30) == 0 )
 		{
@@ -475,17 +475,17 @@ bool CENEMY::Action000( void )
 		{
 			if ( ++Time == 1 )
 			{
-				EVENTDATA ed = { -1, 14, 0, 0, 0, 0, 0 };
+				EVENTDATA ed = { -1, 14, 0, 0, {0, 0}, 0 };
 				new CEVENT( &ed );
 			}
 			if ( Time == 50 )
 			{
-				EVENTDATA ed = { -1, 10, -1, 120, 0, 0, 0 };
+				EVENTDATA ed = { -1, 10, -1, 120, {0, 0}, 0 };
 				new CEVENT( &ed );
 			}
 			if ( Time == 100 )
 			{
-				EVENTDATA ed = { -1, 10, -1, 280, 0, 0, 0 };
+				EVENTDATA ed = { -1, 10, -1, 280, {0, 0}, 0 };
 				new CEVENT( &ed );
 			}
 			if ( Time == 150 )
@@ -559,7 +559,7 @@ bool CENEMY::Action000( void )
 			{
 				CENEMYSHOT::Create( Px-50, Py, 5, 2048, 2, this );
 			}
-			if ( ++Time > 200 ) 
+			if ( ++Time > 200 )
 			{
 				Angle = 0;
 				Time = 0;
@@ -633,17 +633,17 @@ bool CENEMY::Action000( void )
 		{
 			if ( ++Time == 1 )
 			{
-				EVENTDATA ed = { -1, 14, 0, 0, 0, 0, 0 };
+				EVENTDATA ed = { -1, 14, 0, 0, {0, 0}, 0 };
 				new CEVENT( &ed );
 			}
 			if ( Time == 50 )
 			{
-				EVENTDATA ed = { -1, 10, -1, 120, 0, 0, 0 };
+				EVENTDATA ed = { -1, 10, -1, 120, {0, 0}, 0 };
 				new CEVENT( &ed );
 			}
 			if ( Time == 100 )
 			{
-				EVENTDATA ed = { -1, 10, -1, 280, 0, 0, 0 };
+				EVENTDATA ed = { -1, 10, -1, 280, {0, 0}, 0 };
 				new CEVENT( &ed );
 			}
 			if ( Time == 150 )
@@ -1427,7 +1427,7 @@ bool CENEMY::Action009( void )
 	case 1:
 		Px = x2 + LunaMath::Sin( Angle+=64, 8 );
 		Py -= 1.5f;
-		if ( Py < -50 ) 
+		if ( Py < -50 )
 		{
 			return true;
 		}
@@ -1435,7 +1435,7 @@ bool CENEMY::Action009( void )
 	}
 
 	//-------------------------------------------------------------- ‹C‚Ü‚®‚ê‚Å’e”­ŽË
-	if ( bHit ) 
+	if ( bHit )
 	{
 		if ( RAND(0,30) == 0 )
 		{
@@ -1456,7 +1456,7 @@ bool CENEMY::Action009( void )
 
 	//-------------------------------------------------------------- •`‰æƒŠƒXƒg‚É’Ç‰Á
 	RECT dest = { (long)(Px-19), (long)(Py-25), (long)(Px+19), (long)(Py+25) };
-	RECT src = { AnimeTbl[AnimeNo]*38, 371, AnimeTbl[AnimeNo]*38+38, 421 }; 
+	RECT src = { AnimeTbl[AnimeNo]*38, 371, AnimeTbl[AnimeNo]*38+38, 421 };
 	Sprite[4][0]->Draw( &dest, Color, &src );
 
 	//-------------------------------------------------------------- ‚ ‚½‚è”»’è
@@ -1506,7 +1506,7 @@ bool CENEMY::Death009( void )
 	case 1:
 		{
 			Py += y1 += 0.25f;
-			if ( Py > 400 ) return true; 
+			if ( Py > 400 ) return true;
 		}
 		break;
 	}
@@ -1524,7 +1524,7 @@ bool CENEMY::Death009( void )
 
 	//-------------------------------------------------------------- •`‰æƒŠƒXƒg‚É’Ç‰Á
 	RECT dest = { (long)(Px-19), (long)(Py-5), (long)(Px+19), (long)(Py+25) };
-	RECT src = { AnimeTbl[AnimeNo]*38, 391, AnimeTbl[AnimeNo]*38+38, 421 }; 
+	RECT src = { AnimeTbl[AnimeNo]*38, 391, AnimeTbl[AnimeNo]*38+38, 421 };
 	Sprite[4][0]->Draw( &dest, Color, &src );
 
 	return false;
@@ -1787,7 +1787,7 @@ bool CENEMY::Action013( void )
 	return false;
 }
 bool CENEMY::Death013( void )
-{ 
+{
 	return DeathZako( 4 );
 }
 void CENEMY::Damage013( long pow )
