@@ -1,21 +1,20 @@
-/* encoding = CP932 */
 /********************************************************************************/
 /*																				*/
-/*			DirectX8.1—pŠÈˆÕƒ‰ƒCƒuƒ‰ƒŠ Luna										*/
+/*			DirectX8.1ç”¨ç°¡æ˜“ãƒ©ã‚¤ãƒ–ãƒ©ãƒª Luna										*/
 /*																				*/
 /********************************************************************************/
 
 /********************************************************************************/
 /*																				*/
-/*	ÅV”Å‚Ì’u‚¢‚Ä‚ ‚éURL														*/
+/*	æœ€æ–°ç‰ˆã®ç½®ã„ã¦ã‚ã‚‹URL														*/
 /*																				*/
-/*		‚ä‚«‚¢‚é‚©																*/
+/*		ã‚†ãã„ã‚‹ã‹																*/
 /*			http://www5d.biglobe.ne.jp/~twintail/								*/
 /*																				*/
-/*	¿–â“™”­Œ¾êŠ																*/
+/*	è³ªå•ç­‰ç™ºè¨€å ´æ‰€																*/
 /*																				*/
 /*		BBS																		*/
-/*			‚ä‚«‚¢‚é‚©“à‚ÌŒf¦”Â												*/
+/*			ã‚†ãã„ã‚‹ã‹å†…ã®æ²ç¤ºæ¿												*/
 /*																				*/
 /*		E-MAIL																	*/
 /*			yukiiruka@mvb.biglobe.ne.jp											*/
@@ -94,9 +93,9 @@
 //==========================================================================
 // DEFINE
 //==========================================================================
-#define for						if ( false ) ; else for
-#define ef						else if
-#define F(n)					((float)(n))
+//#define for						if ( false ) ; else for
+//#define ef						else if
+//#define F(n)					((float)(n))
 //#define TIME					(Luna::GetCounter())
 //#define FTIME					(F(Luna::GetCounter()))
 
@@ -112,11 +111,11 @@
 #define RANDTABLE_MAX			(1 << 16)
 #define RANDTABLE_MASK			(RANDTABLE_MAX - 1)
 
-#define PAI						(3.141592653589793238462643383279f)
-#define PAI2					(6.283185307179586476925286766559f)
-#define RAND_PAI				(F(LunaMath::Rand(0,62831)*0.0001))
-#define RAND(n1,n2)				(LunaMath::Rand(n1,n2))
-#define ANGLE2PAI(n)			(F(n&SINTABLE_MASK)*PAI2/F(SINTABLE_SIZE))
+//#define PAI						(3.141592653589793238462643383279f)
+//#define PAI2					(6.283185307179586476925286766559f)
+//#define RAND_PAI				(F(LunaMath::Rand(0,62831)*0.0001))
+//#define RAND(n1,n2)				(LunaMath::Rand(n1,n2))
+//#define ANGLE2PAI(n)			(F(n&SINTABLE_MASK)*PAI2/F(SINTABLE_SIZE))
 //#define PAI2ANGLE(n)			((long)(N*SINTABLE_SIZE/PAI2)&SINTABLE_MASK)
 
 //#define SAFE_RELEASE(p)			if ( (p) != NULL ) { (p)->Release(); (p) = NULL; }
@@ -158,7 +157,7 @@ typedef class LunaGraphicLoader	*LGRAPHICS;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////																							////
 ////																							////
-////									—ñ‹“Œ^													////
+////									åˆ—æŒ™å‹													////
 ////																							////
 ////																							////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -290,17 +289,17 @@ enum eRenderState
 	OP_ADDSIGNED2	= D3DTOP_ADDSIGNED2X,
 	OP_SUB			= D3DTOP_SUBTRACT,
 
-	ADDRESS_WRAP	= D3DTADDRESS_WRAP,		// ŒJ‚è•Ô‚µ
-	ADDRESS_MIRROR	= D3DTADDRESS_MIRROR,	// ”½“]
-	ADDRESS_CLAMP	= D3DTADDRESS_CLAMP,	// ƒeƒNƒXƒ`ƒƒƒJƒ‰[‚Å“h‚è‚Â‚Ô‚µ
-	ADDRESS_BORDER	= D3DTADDRESS_BORDER,	// ‹«ŠEF‚Å“h‚è‚Â‚Ô‚µ
+	ADDRESS_WRAP	= D3DTADDRESS_WRAP,		// ç¹°ã‚Šè¿”ã—
+	ADDRESS_MIRROR	= D3DTADDRESS_MIRROR,	// åè»¢
+	ADDRESS_CLAMP	= D3DTADDRESS_CLAMP,	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚«ãƒ©ãƒ¼ã§å¡—ã‚Šã¤ã¶ã—
+	ADDRESS_BORDER	= D3DTADDRESS_BORDER,	// å¢ƒç•Œè‰²ã§å¡—ã‚Šã¤ã¶ã—
 
-	FILTER_NONE				= D3DTEXF_NONE,				// ƒtƒBƒ‹ƒ^‚È‚µ
-	FILTER_POINT			= D3DTEXF_POINT,			// “_ƒtƒBƒ‹ƒ^
-	FILTER_LINEAR			= D3DTEXF_LINEAR,			// ƒoƒCƒŠƒjƒAƒtƒBƒ‹ƒ^
-	FILTER_ANISOTROPIC		= D3DTEXF_ANISOTROPIC,		// ˆÙ•û«ƒtƒBƒ‹ƒ^
-	FILTER_FLATCUBIC		= D3DTEXF_FLATCUBIC,		// •½–ÊƒLƒ…[ƒuƒtƒBƒ‹ƒ^
-	FILTER_GAUSSIANCUBIC	= D3DTEXF_GAUSSIANCUBIC,	// ƒKƒEƒXƒLƒ…[ƒuƒtƒBƒ‹ƒ^
+	FILTER_NONE				= D3DTEXF_NONE,				// ãƒ•ã‚£ãƒ«ã‚¿ãªã—
+	FILTER_POINT			= D3DTEXF_POINT,			// ç‚¹ãƒ•ã‚£ãƒ«ã‚¿
+	FILTER_LINEAR			= D3DTEXF_LINEAR,			// ãƒã‚¤ãƒªãƒ‹ã‚¢ãƒ•ã‚£ãƒ«ã‚¿
+	FILTER_ANISOTROPIC		= D3DTEXF_ANISOTROPIC,		// ç•°æ–¹æ€§ãƒ•ã‚£ãƒ«ã‚¿
+	FILTER_FLATCUBIC		= D3DTEXF_FLATCUBIC,		// å¹³é¢ã‚­ãƒ¥ãƒ¼ãƒ–ãƒ•ã‚£ãƒ«ã‚¿
+	FILTER_GAUSSIANCUBIC	= D3DTEXF_GAUSSIANCUBIC,	// ã‚¬ã‚¦ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ–ãƒ•ã‚£ãƒ«ã‚¿
 
 	sizeof_TextureParam,
 };*/
@@ -310,10 +309,10 @@ enum eRenderState
 //-----------------------------------------------------
 /*enum eCullState
 {
-	CS_INSIDE,			// ƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX‚Í•”•ª“I‚É‚Íƒtƒ‰ƒXƒ^ƒ€‚Ì“à•”‚É‚ ‚è‚Ü‚·
-	CS_OUTSIDE,			// ƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX‚Íƒtƒ‰ƒXƒ^ƒ€‚ÌŠO•”‚É‚ ‚è‚Ü‚·
-	CS_INSIDE_SLOW,		// OBB‚Íƒtƒ‰ƒXƒ^ƒ€‚Ì“à•”‚Å‚·
-	CS_OUTSIDE_SLOW,	// OBB‚Íƒtƒ‰ƒXƒ^ƒ€‚ÌŠO•”‚Å‚·
+	CS_INSIDE,			// ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹ã¯éƒ¨åˆ†çš„ã«ã¯ãƒ•ãƒ©ã‚¹ã‚¿ãƒ ã®å†…éƒ¨ã«ã‚ã‚Šã¾ã™
+	CS_OUTSIDE,			// ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹ã¯ãƒ•ãƒ©ã‚¹ã‚¿ãƒ ã®å¤–éƒ¨ã«ã‚ã‚Šã¾ã™
+	CS_INSIDE_SLOW,		// OBBã¯ãƒ•ãƒ©ã‚¹ã‚¿ãƒ ã®å†…éƒ¨ã§ã™
+	CS_OUTSIDE_SLOW,	// OBBã¯ãƒ•ãƒ©ã‚¹ã‚¿ãƒ ã®å¤–éƒ¨ã§ã™
 };*/
 
 //-----------------------------------------------------
@@ -340,7 +339,7 @@ enum eRenderState
 };*/
 
 //-----------------------------------------------------
-// ƒtƒHƒ“ƒg•`‰æ“]‘—æ
+// ãƒ•ã‚©ãƒ³ãƒˆæç”»è»¢é€å…ˆ
 //-----------------------------------------------------
 /*enum eDestination
 {
@@ -350,7 +349,7 @@ enum eRenderState
 };*/
 
 //-----------------------------------------------------
-// ƒeƒNƒXƒ`ƒƒ²
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£è»¸
 //-----------------------------------------------------
 /*enum eAxisUV
 {
@@ -397,7 +396,7 @@ enum eRenderState
 };*/
 
 //-----------------------------------------------------
-// ƒT[ƒtƒFƒCƒXƒtƒH[ƒ}ƒbƒg
+// ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 //-----------------------------------------------------
 enum eFormat
 {
@@ -407,15 +406,15 @@ enum eFormat
 };
 
 //-----------------------------------------------------
-// ƒXƒvƒ‰ƒCƒg‰ñ“]²
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆå›è»¢è»¸
 //-----------------------------------------------------
 enum eRotateAxis
 {
-	ROTATE_CENTER,		// ’†S
-	ROTATE_LT,			// ¶ã
-	ROTATE_LB,			// ¶‰º
-	ROTATE_RT,			// ‰Eã
-	ROTATE_RB,			// ‰E‰º
+	ROTATE_CENTER,		// ä¸­å¿ƒ
+	ROTATE_LT,			// å·¦ä¸Š
+	ROTATE_LB,			// å·¦ä¸‹
+	ROTATE_RT,			// å³ä¸Š
+	ROTATE_RB,			// å³ä¸‹
 };
 
 
@@ -423,14 +422,14 @@ enum eRotateAxis
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////																							////
 ////																							////
-////									\‘¢‘Ì													////
+////									æ§‹é€ ä½“													////
 ////																							////
 ////																							////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //-----------------------------------------------------
-// ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€Ï‚İ’¸“_
+// ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ æ¸ˆã¿é ‚ç‚¹
 //-----------------------------------------------------
 /*typedef struct TLVERTEXFX {
 	float x, y, z, w;
@@ -440,7 +439,7 @@ enum eRotateAxis
 //#define FVF_TLVERTEXFX (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
 
 //-----------------------------------------------------
-// ƒeƒNƒXƒ`ƒƒ•tƒgƒ‰ƒ“ƒXƒtƒH[ƒ€Ï‚İ’¸“_
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ä»˜ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ æ¸ˆã¿é ‚ç‚¹
 //-----------------------------------------------------
 typedef struct TLVERTEX {
 	float x, y, z, w;
@@ -451,7 +450,7 @@ typedef struct TLVERTEX {
 //#define FVF_TLVERTEX (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1)
 
 //-----------------------------------------------------
-// ƒeƒNƒXƒ`ƒƒ•t–¢ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€’¸“_
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ä»˜æœªãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ é ‚ç‚¹
 //-----------------------------------------------------
 /*typedef struct VERTEX {
 	LVECTOR p;
@@ -463,7 +462,7 @@ typedef struct TLVERTEX {
 //#define FVF_VERTEX (D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_DIFFUSE | D3DFVF_TEX1)
 
 //-----------------------------------------------------
-// ƒ‰ƒCƒeƒBƒ“ƒOÏ‚İ–¢ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€’¸“_
+// ãƒ©ã‚¤ãƒ†ã‚£ãƒ³ã‚°æ¸ˆã¿æœªãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ é ‚ç‚¹
 //-----------------------------------------------------
 /*typedef struct LVERTEX {
 	LVECTOR p;
@@ -473,7 +472,7 @@ typedef struct TLVERTEX {
 //#define FVF_LVERTEX (D3DFVF_XYZ | D3DFVF_DIFFUSE)
 
 //-----------------------------------------------------
-// ƒ‰ƒCƒeƒBƒ“ƒOÏ‚İ–¢ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€’¸“_
+// ãƒ©ã‚¤ãƒ†ã‚£ãƒ³ã‚°æ¸ˆã¿æœªãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ é ‚ç‚¹
 //-----------------------------------------------------
 /*typedef struct HEIGHTVERTEX {
 	LVECTOR p;
@@ -484,7 +483,7 @@ typedef struct TLVERTEX {
 //#define FVF_HEIGHTVERTEX (D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1)
 
 //-----------------------------------------------------
-// ƒ‰ƒCƒ“—p–¢ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€’¸“_
+// ãƒ©ã‚¤ãƒ³ç”¨æœªãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ é ‚ç‚¹
 //-----------------------------------------------------
 /*typedef struct LINEVERTEX
 {
@@ -496,17 +495,17 @@ LINEVERTEX, *LPLINEVERTEX;*/
 //#define FVF_LINEVERTEX (D3DFVF_XYZ | D3DFVF_DIFFUSE)
 
 //-----------------------------------------------------
-// ƒJƒŠƒ“ƒO—p
+// ã‚«ãƒªãƒ³ã‚°ç”¨
 //-----------------------------------------------------
 /*typedef struct CULLINFO
 {
-    LVECTOR VecFrustum[8];		// ƒrƒ…[ƒtƒ‰ƒXƒ^ƒ€‚ÌŠp
-    LPLANE PlaneFrustum[6];		// ƒrƒ…[ƒtƒ‰ƒXƒ^ƒ€‚Ì•½–Ê
+    LVECTOR VecFrustum[8];		// ãƒ“ãƒ¥ãƒ¼ãƒ•ãƒ©ã‚¹ã‚¿ãƒ ã®è§’
+    LPLANE PlaneFrustum[6];		// ãƒ“ãƒ¥ãƒ¼ãƒ•ãƒ©ã‚¹ã‚¿ãƒ ã®å¹³é¢
 }
 CULLINFO, *LPCULLINFO;*/
 
 //-----------------------------------------------------
-// p¨§Œä—p
+// å§¿å‹¢åˆ¶å¾¡ç”¨
 //-----------------------------------------------------
 /*typedef struct LSTYLE
 {
@@ -517,7 +516,7 @@ CULLINFO, *LPCULLINFO;*/
 LSTYLE, *LPLSTYLE;*/
 
 //-----------------------------------------------------
-// ‚QŸŒ³ã‚Ì“_
+// ï¼’æ¬¡å…ƒä¸Šã®ç‚¹
 //-----------------------------------------------------
 typedef struct POINT2D
 {
@@ -526,7 +525,7 @@ typedef struct POINT2D
 POINT2D, *LPPOINT2D;
 
 //-----------------------------------------------------
-// ‚QŸŒ³ã‚Ì‰~
+// ï¼’æ¬¡å…ƒä¸Šã®å††
 //-----------------------------------------------------
 /*typedef struct CIRCLE2D
 {
@@ -536,7 +535,7 @@ POINT2D, *LPPOINT2D;
 CIRCLE2D, *LPCIRCLE2D;*/
 
 //-----------------------------------------------------
-// ‚QŸŒ³ã‚ÌlŠp
+// ï¼’æ¬¡å…ƒä¸Šã®å››è§’
 //-----------------------------------------------------
 /*typedef struct RECT2D
 {
@@ -546,7 +545,7 @@ CIRCLE2D, *LPCIRCLE2D;*/
 RECT2D, *LPRECT2D;*/
 
 //-----------------------------------------------------
-// ‚QŸŒ³ã‚Ì‘½ŠpŒ`
+// ï¼’æ¬¡å…ƒä¸Šã®å¤šè§’å½¢
 //-----------------------------------------------------
 typedef struct POLYGON2D
 {
@@ -556,7 +555,7 @@ typedef struct POLYGON2D
 POLYGON2D, *LPPOLYGON2D;
 
 //-----------------------------------------------------
-// ‚QŸŒ³ã‚Ìü
+// ï¼’æ¬¡å…ƒä¸Šã®ç·š
 //-----------------------------------------------------
 typedef struct LINE2D
 {
@@ -565,7 +564,7 @@ typedef struct LINE2D
 LINE2D, *LPLINE2D;
 
 //-----------------------------------------------------
-// ‚RŸŒ³ã‚Ì“_
+// ï¼“æ¬¡å…ƒä¸Šã®ç‚¹
 //-----------------------------------------------------
 /*typedef struct POINT3D
 {
@@ -574,7 +573,7 @@ LINE2D, *LPLINE2D;
 POINT3D, *LPPOINT3D;*/
 
 //-----------------------------------------------------
-// ‚RŸŒ³ã‚Ì‰~i‹…
+// ï¼“æ¬¡å…ƒä¸Šã®å††ï¼ˆçƒ
 //-----------------------------------------------------
 /*typedef struct CIRCLE3D
 {
@@ -584,7 +583,7 @@ POINT3D, *LPPOINT3D;*/
 CIRCLE3D, *LPCIRCLE3D;*/
 
 //-----------------------------------------------------
-// ‚RŸŒ³ã‚Ìü
+// ï¼“æ¬¡å…ƒä¸Šã®ç·š
 //-----------------------------------------------------
 /*typedef struct LINE3D
 {
@@ -594,7 +593,7 @@ CIRCLE3D, *LPCIRCLE3D;*/
 LINE3D, *LPLINE3D;*/
 
 //-----------------------------------------------------
-// ‚RŸŒ³ã‚Ì–Ê
+// ï¼“æ¬¡å…ƒä¸Šã®é¢
 //-----------------------------------------------------
 /*typedef struct PLANE3D
 {
@@ -603,7 +602,7 @@ LINE3D, *LPLINE3D;*/
 PLANE3D, *LPPLANE3D;*/
 
 //-----------------------------------------------------
-// ‚RŸŒ³ã‚Ì” 
+// ï¼“æ¬¡å…ƒä¸Šã®ç®±
 //-----------------------------------------------------
 /*typedef struct BOX3D
 {
@@ -613,7 +612,7 @@ PLANE3D, *LPPLANE3D;*/
 BOX3D, *LPBOX3D;*/
 
 //-----------------------------------------------------
-// ‰ñ“]ƒL[
+// å›è»¢ã‚­ãƒ¼
 //-----------------------------------------------------
 /*typedef struct {
 	DWORD			Time;
@@ -621,7 +620,7 @@ BOX3D, *LPBOX3D;*/
 } KEYROTATION;*/
 
 //-----------------------------------------------------
-// Šg‘åk¬ƒL[
+// æ‹¡å¤§ç¸®å°ã‚­ãƒ¼
 //-----------------------------------------------------
 /*typedef struct {
 	DWORD			Time;
@@ -629,7 +628,7 @@ BOX3D, *LPBOX3D;*/
 } KEYSCALING;*/
 
 //-----------------------------------------------------
-// ˆÚ“®ƒL[
+// ç§»å‹•ã‚­ãƒ¼
 //-----------------------------------------------------
 /*typedef struct {
 	DWORD			Time;
@@ -637,7 +636,7 @@ BOX3D, *LPBOX3D;*/
 } KEYTRANSLATION;*/
 
 //-----------------------------------------------------
-// s—ñƒL[
+// è¡Œåˆ—ã‚­ãƒ¼
 //-----------------------------------------------------
 /*typedef struct {
 	DWORD			Time;
@@ -645,7 +644,7 @@ BOX3D, *LPBOX3D;*/
 } KEYMATRIX;*/
 
 //-----------------------------------------------------
-// —×Ú–Ê—p
+// éš£æ¥é¢ç”¨
 //-----------------------------------------------------
 /*typedef struct ADJOINING
 {
@@ -654,7 +653,7 @@ BOX3D, *LPBOX3D;*/
 }
 ADJOINING, *LPADJOINING;*/
 
-// ƒ}ƒEƒXƒf[ƒ^
+// ãƒã‚¦ã‚¹ãƒ‡ãƒ¼ã‚¿
 /*typedef struct MOUSEDATA
 {
 	long X, Y, W;
@@ -665,7 +664,7 @@ ADJOINING, *LPADJOINING;*/
 MOUSEDATA, *LPMOUSEDATA;*/
 
 //-----------------------------------------------------
-// ƒL[ƒ{[ƒhƒf[ƒ^
+// ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿
 //-----------------------------------------------------
 /*typedef struct KEYBOARDDATA
 {
@@ -674,26 +673,26 @@ MOUSEDATA, *LPMOUSEDATA;*/
 KEYBOARDDATA, *LPKEYBOARDDATA;*/
 
 //-----------------------------------------------------
-// ƒWƒ‡ƒCƒXƒeƒBƒbƒNƒf[ƒ^
+// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãƒ‡ãƒ¼ã‚¿
 //-----------------------------------------------------
 typedef struct JOYSTICKDATA
 {
-	long Px, Py, Pz;		// ²
-	long Rx, Ry, Rz;		// ‰ñ“]²
-	long Vx, Vy, Vz;		// ²‚Ì‘¬“x
-	long VRx, VRy, VRz;		// ²‚ÌŠp‘¬“x
-	long Ax, Ay, Az;		// ²‚Ì‰Á‘¬“x
-	long ARx, ARy, ARz;		// ²‚ÌŠp‰Á‘¬“x
-	long Fx, Fy, Fz;		// ²‚ÌƒtƒH[ƒX
-	long FRx, FRy, FRz;		// ²‚Ìƒgƒ‹ƒN
-	long Slider[2];			// ƒXƒ‰ƒCƒ_[
+	long Px, Py, Pz;		// è»¸
+	long Rx, Ry, Rz;		// å›è»¢è»¸
+	long Vx, Vy, Vz;		// è»¸ã®é€Ÿåº¦
+	long VRx, VRy, VRz;		// è»¸ã®è§’é€Ÿåº¦
+	long Ax, Ay, Az;		// è»¸ã®åŠ é€Ÿåº¦
+	long ARx, ARy, ARz;		// è»¸ã®è§’åŠ é€Ÿåº¦
+	long Fx, Fy, Fz;		// è»¸ã®ãƒ•ã‚©ãƒ¼ã‚¹
+	long FRx, FRy, FRz;		// è»¸ã®ãƒˆãƒ«ã‚¯
+	long Slider[2];			// ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼
 	long Pov[4];			// POV
-	char Button[16];		// ƒ{ƒ^ƒ“
+	char Button[16];		// ãƒœã‚¿ãƒ³
 }
-JOYSTICKDATA, *LPJOYSTICKDATA;	// 32BitƒAƒ‰ƒCƒƒ“ƒg•K{
+JOYSTICKDATA, *LPJOYSTICKDATA;	// 32Bitã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆå¿…é ˆ
 
 //-----------------------------------------------------
-// ²ƒf[ƒ^
+// è»¸ãƒ‡ãƒ¼ã‚¿
 //-----------------------------------------------------
 /*typedef struct AXISDATA
 {
@@ -702,7 +701,7 @@ JOYSTICKDATA, *LPJOYSTICKDATA;	// 32BitƒAƒ‰ƒCƒƒ“ƒg•K{
 AXISDATA, *LPAXISDATA;*/
 
 //-----------------------------------------------------
-// ƒWƒ‡ƒCƒXƒeƒBƒbƒN“Š‡
+// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯çµ±æ‹¬
 //-----------------------------------------------------
 /*typedef struct JOYSTICKDATA2
 {
@@ -716,7 +715,7 @@ AXISDATA, *LPAXISDATA;*/
 JOYSTICKDATA2, *LPJOYSTICKDATA2;*/
 
 //-----------------------------------------------------
-// ƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg
+// ãƒ”ã‚¯ã‚»ãƒ«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 //-----------------------------------------------------
 enum LAGPIXELFORMAT
 {
@@ -727,7 +726,7 @@ enum LAGPIXELFORMAT
 };
 
 //-----------------------------------------------------
-// 16BitƒsƒNƒZƒ‹ƒf[ƒ^
+// 16Bitãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿
 //-----------------------------------------------------
 typedef struct PIXELDATA16
 {
@@ -739,7 +738,7 @@ typedef struct PIXELDATA16
 PIXELDATA16;
 
 //-----------------------------------------------------
-// 32BitƒsƒNƒZƒ‹ƒf[ƒ^
+// 32Bitãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿
 //-----------------------------------------------------
 typedef struct PIXELDATA32
 {
@@ -751,7 +750,7 @@ typedef struct PIXELDATA32
 PIXELDATA32;
 
 //-----------------------------------------------------
-// 64BitƒsƒNƒZƒ‹ƒf[ƒ^
+// 64Bitãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿
 //-----------------------------------------------------
 typedef struct PIXELDATA64
 {
@@ -763,7 +762,7 @@ typedef struct PIXELDATA64
 PIXELDATA64;
 
 //-----------------------------------------------------
-// floatŒ^ƒsƒNƒZƒ‹ƒf[ƒ^
+// floatå‹ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿
 //-----------------------------------------------------
 typedef struct PIXELDATAFLOAT
 {
@@ -775,7 +774,7 @@ typedef struct PIXELDATAFLOAT
 PIXELDATAFLOAT;
 
 //-----------------------------------------------------
-// ƒtƒHƒ“ƒg•`‰æ—p
+// ãƒ•ã‚©ãƒ³ãƒˆæç”»ç”¨
 //-----------------------------------------------------
 /*typedef struct DRAWDATA
 {
@@ -790,14 +789,14 @@ DRAWDATA, *LPDRAWDATA;*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////																							////
 ////																							////
-////									ƒNƒ‰ƒX													////
+////									ã‚¯ãƒ©ã‚¹													////
 ////																							////
 ////																							////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //==========================================================================
-// ƒŠƒXƒg—pŠî’êƒNƒ‰ƒX
+// ãƒªã‚¹ãƒˆç”¨åŸºåº•ã‚¯ãƒ©ã‚¹
 //==========================================================================
 typedef class CListBase
 {
@@ -817,7 +816,7 @@ public:
 CListBase, *LPCListBase;
 
 //==========================================================================
-// ƒŠƒXƒgŠÇ—ƒNƒ‰ƒX
+// ãƒªã‚¹ãƒˆç®¡ç†ã‚¯ãƒ©ã‚¹
 //==========================================================================
 typedef class CList
 {
@@ -1032,7 +1031,7 @@ public:
 };
 
 //==========================================================================
-// ƒTƒEƒ“ƒhƒNƒ‰ƒX
+// ã‚µã‚¦ãƒ³ãƒ‰ã‚¯ãƒ©ã‚¹
 //==========================================================================
 /*class LunaAudio : public CListBase
 {
@@ -1047,24 +1046,24 @@ protected:
 	__int64 StartPos, EndPos;
 	BOOL bLoad, bPlay, bLoop, bPause;
 
-	LunaAudio( char *file );						// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	~LunaAudio();									// ƒfƒXƒgƒ‰ƒNƒ^
+	LunaAudio( char *file );						// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	~LunaAudio();									// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
 public:
-	static BOOL Init( void );						// ‰Šú‰»
-	static void UnInit( void );						// I—¹
+	static BOOL Init( void );						// åˆæœŸåŒ–
+	static void UnInit( void );						// çµ‚äº†
 
 	static void Event( void );
 	static LAUDIO Load( char *file );
 
-	// ŠeíŠÖ”
-	virtual void Play( BOOL loop );					// Ä¶
-	virtual void Stop( void );						// ’â~
-	virtual BOOL IsPlaying( void );					// Ä¶ƒ`ƒFƒbƒN
-	virtual void Pause( void );						// ˆê’â~
-	virtual void SetSpeed( float speed );			// Ä¶‘¬“x•ÏX
-	virtual void SetVolume( long param );			// ƒ{ƒŠƒ…[ƒ€•ÏX
-	virtual void SetPan( long param );				// ƒpƒ“ˆÚ“®
+	// å„ç¨®é–¢æ•°
+	virtual void Play( BOOL loop );					// å†ç”Ÿ
+	virtual void Stop( void );						// åœæ­¢
+	virtual BOOL IsPlaying( void );					// å†ç”Ÿãƒã‚§ãƒƒã‚¯
+	virtual void Pause( void );						// ä¸€æ™‚åœæ­¢
+	virtual void SetSpeed( float speed );			// å†ç”Ÿé€Ÿåº¦å¤‰æ›´
+	virtual void SetVolume( long param );			// ãƒœãƒªãƒ¥ãƒ¼ãƒ å¤‰æ›´
+	virtual void SetPan( long param );				// ãƒ‘ãƒ³ç§»å‹•
 };*/
 
 
@@ -1119,37 +1118,37 @@ public:
 class LunaCollision
 {
 public:
-	// ‚Q‚c
-	/*static bool Point_Point( POINT2D &pt1, POINT2D pt2 );				// “_‚Æü
-	static bool Point_Line( POINT2D &pt, LINE2D &l );					// “_‚Æü
-	static bool Point_Rect( POINT2D &pt, RECT2D &rect );				// “_‚ÆlŠp
-	static bool Point_Circle( POINT2D &pt, CIRCLE2D &cir );				// “_‚Æ‰~*/
-	static bool Point_Polygon( POINT2D &pt, POLYGON2D &poly );			// “_‚Æ‘½ŠpŒ`
-	/*static bool Rect_Rect( RECT2D &rect1, RECT2D &rect2 );				// lŠp‚ÆlŠp
-	static bool Rect_Circle( RECT2D &rect, CIRCLE2D &cir );				// lŠp‚Æ‰~
-	static bool Rect_Line( RECT2D &rect, LINE2D &l );					// lŠp‚Æü
-	static bool Rect_Polygon( RECT2D &rect, POLYGON2D &poly );			// lŠp‚Æ‘½ŠpŒ`
-	static bool Circle_Circle( CIRCLE2D &cir1, CIRCLE2D &cir2 );		// ‰~‚Æ‰~
-	static bool Circle_Line( CIRCLE2D &cir, LINE2D &l );				// ‰~‚Æü
-	static bool Circle_Polygon( CIRCLE2D &cir, POLYGON2D &poly );		// ‰~‚Æ‘½ŠpŒ`
-	static bool Line_Line( LINE2D &l1, LINE2D &l2 );					// ü‚Æü*/
-	static bool Line_Polygon( LINE2D &l, POLYGON2D &poly );				// ü‚Æ‘½ŠpŒ`
-	static bool Polygon_Polygon( POLYGON2D &poly1, POLYGON2D &poly2 );	// ‘½ŠpŒ`‚Æ‘½ŠpŒ`
-	// ‚R‚c
-	/*static bool Point_Point_3D( POINT3D &pt1, POINT3D &pt2 );			// “_‚Æ“_
-	static bool Point_Circle_3D( POINT3D &pt, CIRCLE3D &cir );			// “_‚Æ‹…
-	static bool Point_Line_3D( POINT3D &pt, LINE3D &l );				// “_‚Æü
-	static bool Point_Plane_3D( POINT3D &pt, PLANE3D &pln );			// “_‚Æ–Ê
-	static bool Point_Box_3D( POINT3D &pt, BOX3D &b );					// “_‚Æ” 
-	static bool Circle_Circle_3D( CIRCLE3D &cir1, CIRCLE3D &cir2 );		// ‹…‚Æ‹…
-	static bool Circle_Line_3D( CIRCLE3D &cir, LINE3D &l );				// ‹…‚Æü
-	static bool Circle_Plane( CIRCLE3D &cir, PLANE3D &pln );			// ‹…‚Æ–Ê
-	static bool Circle_Box_3D( CIRCLE3D &cir, BOX3D &b );				// ‹…‚Æ” 
-	static bool Line_Line_3D( LINE3D &l1, LINE3D &l2 );					// ü‚Æü
-	static bool Line_Plane_3D( LINE3D &l, PLANE3D &pln );				// ü‚Æ–Ê
-	static bool Line_Box_3D( LINE3D &l, BOX3D &b );						// ü‚Æ” 
-	static bool Plane_Plane_3D( PLANE3D &pln1, PLANE3D &pln2 );			// –Ê‚Æ–Ê
-	static bool Box_Box_3D( BOX3D &b1, BOX3D &b2 );						// ” ‚Æ” */
+	// ï¼’ï¼¤
+	/*static bool Point_Point( POINT2D &pt1, POINT2D pt2 );				// ç‚¹ã¨ç·š
+	static bool Point_Line( POINT2D &pt, LINE2D &l );					// ç‚¹ã¨ç·š
+	static bool Point_Rect( POINT2D &pt, RECT2D &rect );				// ç‚¹ã¨å››è§’
+	static bool Point_Circle( POINT2D &pt, CIRCLE2D &cir );				// ç‚¹ã¨å††*/
+	static bool Point_Polygon( POINT2D &pt, POLYGON2D &poly );			// ç‚¹ã¨å¤šè§’å½¢
+	/*static bool Rect_Rect( RECT2D &rect1, RECT2D &rect2 );				// å››è§’ã¨å››è§’
+	static bool Rect_Circle( RECT2D &rect, CIRCLE2D &cir );				// å››è§’ã¨å††
+	static bool Rect_Line( RECT2D &rect, LINE2D &l );					// å››è§’ã¨ç·š
+	static bool Rect_Polygon( RECT2D &rect, POLYGON2D &poly );			// å››è§’ã¨å¤šè§’å½¢
+	static bool Circle_Circle( CIRCLE2D &cir1, CIRCLE2D &cir2 );		// å††ã¨å††
+	static bool Circle_Line( CIRCLE2D &cir, LINE2D &l );				// å††ã¨ç·š
+	static bool Circle_Polygon( CIRCLE2D &cir, POLYGON2D &poly );		// å††ã¨å¤šè§’å½¢
+	static bool Line_Line( LINE2D &l1, LINE2D &l2 );					// ç·šã¨ç·š*/
+	static bool Line_Polygon( LINE2D &l, POLYGON2D &poly );				// ç·šã¨å¤šè§’å½¢
+	static bool Polygon_Polygon( POLYGON2D &poly1, POLYGON2D &poly2 );	// å¤šè§’å½¢ã¨å¤šè§’å½¢
+	// ï¼“ï¼¤
+	/*static bool Point_Point_3D( POINT3D &pt1, POINT3D &pt2 );			// ç‚¹ã¨ç‚¹
+	static bool Point_Circle_3D( POINT3D &pt, CIRCLE3D &cir );			// ç‚¹ã¨çƒ
+	static bool Point_Line_3D( POINT3D &pt, LINE3D &l );				// ç‚¹ã¨ç·š
+	static bool Point_Plane_3D( POINT3D &pt, PLANE3D &pln );			// ç‚¹ã¨é¢
+	static bool Point_Box_3D( POINT3D &pt, BOX3D &b );					// ç‚¹ã¨ç®±
+	static bool Circle_Circle_3D( CIRCLE3D &cir1, CIRCLE3D &cir2 );		// çƒã¨çƒ
+	static bool Circle_Line_3D( CIRCLE3D &cir, LINE3D &l );				// çƒã¨ç·š
+	static bool Circle_Plane( CIRCLE3D &cir, PLANE3D &pln );			// çƒã¨é¢
+	static bool Circle_Box_3D( CIRCLE3D &cir, BOX3D &b );				// çƒã¨ç®±
+	static bool Line_Line_3D( LINE3D &l1, LINE3D &l2 );					// ç·šã¨ç·š
+	static bool Line_Plane_3D( LINE3D &l, PLANE3D &pln );				// ç·šã¨é¢
+	static bool Line_Box_3D( LINE3D &l, BOX3D &b );						// ç·šã¨ç®±
+	static bool Plane_Plane_3D( PLANE3D &pln1, PLANE3D &pln2 );			// é¢ã¨é¢
+	static bool Box_Box_3D( BOX3D &b1, BOX3D &b2 );						// ç®±ã¨ç®±*/
 };
 
 //==========================================================================
@@ -1247,13 +1246,13 @@ protected:
 	void Division( LunaFixFloat &f0, long n1, long n2 );
 
 public:
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	LunaFixFloat( void );
 	LunaFixFloat( long nValue );
 	LunaFixFloat( float fValue );
 	LunaFixFloat( const LunaFixFloat& src );
 
-	// ŠÖ”
+	// é–¢æ•°
 	long GetInt( void );
 	float GetFloat( void );
 	float GetFix( void );
@@ -1262,7 +1261,7 @@ public:
 	void SetValue( long nHigh, long nLow );
 	void SetValue( long nHigh, float fLow );
 
-	// ƒIƒyƒŒ[ƒ^[
+	// ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ãƒ¼
 	void operator  = ( LunaFixFloat& src );
 	void operator -= ( LunaFixFloat& src );
 	void operator += ( LunaFixFloat& src );
@@ -1383,7 +1382,7 @@ protected:
 	virtual BOOL LoadBMP_24( BITMAPINFO *lpBmpInfo, unsigned char *pBmpBits );
 	virtual BOOL LoadBMP_32( BITMAPINFO *lpBmpInfo, unsigned char *pBmpBits );*/
 
-	// LAGŠÖ˜A
+	// LAGé–¢é€£
 	//virtual long LoadLAG( char *file, char *name, long *w, long *h, void **ppData, LAGPIXELFORMAT *fmt );
 	virtual long LoadLAG( const char *file, const char *name, long *w, long *h, void **ppData, LAGPIXELFORMAT *fmt );
 	virtual long GetLAGDataSize( long w, long h, LAGPIXELFORMAT fmt );
@@ -1437,7 +1436,7 @@ public:
 
 
 //==========================================================================
-// ZpƒNƒ‰ƒX
+// ç®—è¡“ã‚¯ãƒ©ã‚¹
 //==========================================================================
 class LunaMath
 {
@@ -1469,7 +1468,7 @@ public:
 };
 
 //==========================================================================
-// ƒ€[ƒr[ƒNƒ‰ƒX
+// ãƒ ãƒ¼ãƒ“ãƒ¼ã‚¯ãƒ©ã‚¹
 //==========================================================================
 /*class LunaMedia : public CListBase
 {
@@ -1502,7 +1501,7 @@ public:
 
 
 //=====================================================================
-// ƒ}ƒeƒŠƒAƒ‹
+// ãƒãƒ†ãƒªã‚¢ãƒ«
 //=====================================================================
 /*class CMATERIAL : public CListBase
 {
@@ -1510,24 +1509,24 @@ public:
 	friend class LunaModel;
 
 protected:
-	D3DMATERIAL8 Material;		// ƒ}ƒeƒŠƒAƒ‹
-	LTEXTURE Texture;			// ƒeƒNƒXƒ`ƒƒ
+	D3DMATERIAL8 Material;		// ãƒãƒ†ãƒªã‚¢ãƒ«
+	LTEXTURE Texture;			// ãƒ†ã‚¯ã‚¹ãƒãƒ£
 	DWORD IndexStart;
 	DWORD FaceCount;
 
-	// ƒŒƒ“ƒ_ƒŠƒ“ƒOƒXƒe[ƒg
-	BOOL IsStateChange;						// ƒXƒe[ƒg‚Ì•ÏX—L–³
-	long RenderState[sizeof_RenderState];	// ƒXƒe[ƒg
+	// ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚¹ãƒ†ãƒ¼ãƒˆ
+	BOOL IsStateChange;						// ã‚¹ãƒ†ãƒ¼ãƒˆã®å¤‰æ›´æœ‰ç„¡
+	long RenderState[sizeof_RenderState];	// ã‚¹ãƒ†ãƒ¼ãƒˆ
 
 	//===========================================================================
-	// ƒƒ“ƒoŠÖ”
+	// ãƒ¡ãƒ³ãƒé–¢æ•°
 	//===========================================================================
 	CMATERIAL();
 	virtual ~CMATERIAL();
 };*/
 
 //=====================================================================
-// ƒƒbƒVƒ…ƒNƒ‰ƒX
+// ãƒ¡ãƒƒã‚·ãƒ¥ã‚¯ãƒ©ã‚¹
 //=====================================================================
 /*class CMESH : public CListBase
 {
@@ -1535,55 +1534,55 @@ protected:
 	friend class CFRAME;
 
 protected:
-	char Name[64];						// ƒƒbƒVƒ…–¼
-	CList Materials;							// ƒ}ƒeƒŠƒAƒ‹ƒŠƒXƒg
-	CFRAME *lpParentFrame;						// e‚ÌƒtƒŒ[ƒ€
-	DWORD IndexCount;							// ƒCƒ“ƒfƒbƒNƒX”
-	DWORD VertexCount;							// ’¸“_”
-	LPVERTEX lpVertex;							// ’¸“_
-	unsigned short *lpIndex;					// ƒCƒ“ƒfƒbƒNƒX
-	LPDIRECT3DVERTEXBUFFER8 lpVB;				// ’¸“_ƒoƒbƒtƒ@
-	LPDIRECT3DINDEXBUFFER8 lpIB;				// ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@
+	char Name[64];						// ãƒ¡ãƒƒã‚·ãƒ¥å
+	CList Materials;							// ãƒãƒ†ãƒªã‚¢ãƒ«ãƒªã‚¹ãƒˆ
+	CFRAME *lpParentFrame;						// è¦ªã®ãƒ•ãƒ¬ãƒ¼ãƒ 
+	DWORD IndexCount;							// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ•°
+	DWORD VertexCount;							// é ‚ç‚¹æ•°
+	LPVERTEX lpVertex;							// é ‚ç‚¹
+	unsigned short *lpIndex;					// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+	LPDIRECT3DVERTEXBUFFER8 lpVB;				// é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡
+	LPDIRECT3DINDEXBUFFER8 lpIB;				// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡
 
-	// —ÖŠs’Šo—p
-	BOOL IsDrawEdge;							// —ÖŠs•`‰æ
-	BOOL *lpIsCulling;							// –Ê‚Ì•\— ”»’è
-	LPLINEVERTEX lpEdge;						// —ÖŠsü—p
-	LPADJOINING lpAdjoinig;						// —×Ú–Êƒf[ƒ^
-	LPLVECTOR lpScreen;							// •ÏŠ·Œã‚Ì’¸“_Ši”[—p
+	// è¼ªéƒ­æŠ½å‡ºç”¨
+	BOOL IsDrawEdge;							// è¼ªéƒ­æç”»
+	BOOL *lpIsCulling;							// é¢ã®è¡¨è£åˆ¤å®š
+	LPLINEVERTEX lpEdge;						// è¼ªéƒ­ç·šç”¨
+	LPADJOINING lpAdjoinig;						// éš£æ¥é¢ãƒ‡ãƒ¼ã‚¿
+	LPLVECTOR lpScreen;							// å¤‰æ›å¾Œã®é ‚ç‚¹æ ¼ç´ç”¨
 
-	// ƒoƒEƒ“ƒfƒBƒ“ƒO
-	LVECTOR Center;								// ƒƒbƒVƒ…‚Ì’†S
-	BOOL IsDrawBox;								// ƒ{ƒbƒNƒX•\¦‚Ì—L–³
-	D3DCOLOR BoxColor;							// ” ‚ÌF
-	BOOL IsProjCull;							// ƒvƒƒWƒFƒNƒVƒ‡ƒ“ƒJƒŠƒ“ƒO‚Ì—L–³
-	LVECTOR BBMin, BBMax;						// ƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX
-	LVECTOR WorldBB[8];							// ƒ[ƒ‹ƒhÀ•WŒn‚Å‚ÌƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX
-	LPLANE PlaneBB[6];							// ƒ[ƒ‹ƒhÀ•WŒn‚Å‚ÌƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX‚Ì–Ê
+	// ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°
+	LVECTOR Center;								// ãƒ¡ãƒƒã‚·ãƒ¥ã®ä¸­å¿ƒ
+	BOOL IsDrawBox;								// ãƒœãƒƒã‚¯ã‚¹è¡¨ç¤ºã®æœ‰ç„¡
+	D3DCOLOR BoxColor;							// ç®±ã®è‰²
+	BOOL IsProjCull;							// ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ã‚«ãƒªãƒ³ã‚°ã®æœ‰ç„¡
+	LVECTOR BBMin, BBMax;						// ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹
+	LVECTOR WorldBB[8];							// ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ç³»ã§ã®ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹
+	LPLANE PlaneBB[6];							// ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ç³»ã§ã®ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹ã®é¢
 
-	// ƒŒƒ“ƒ_ƒŠƒ“ƒOƒXƒe[ƒg
-	BOOL IsStateChange;							// ƒXƒe[ƒg‚Ì•ÏX—L–³
-	long RenderState[sizeof_RenderState];		// ƒXƒe[ƒg
+	// ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚¹ãƒ†ãƒ¼ãƒˆ
+	BOOL IsStateChange;							// ã‚¹ãƒ†ãƒ¼ãƒˆã®å¤‰æ›´æœ‰ç„¡
+	long RenderState[sizeof_RenderState];		// ã‚¹ãƒ†ãƒ¼ãƒˆ
 
 	//===========================================================================
-	// ƒƒ“ƒoŠÖ”
+	// ãƒ¡ãƒ³ãƒé–¢æ•°
 	//===========================================================================
 	CMESH();
 	virtual ~CMESH();
 
 	virtual void SetStateChange( BOOL flag1, BOOL flag2 );
 	virtual void SetRenderState( eRenderState state, long param, long material );
-	virtual void ComputeNormal( void );				// –@üZo
-	virtual void ComputeBox( void );				// ƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX
-	virtual void ComputeAdjancy( void );			// —×Ú–Êƒf[ƒ^æ“¾
-	virtual void Render( void );					// ƒŒƒ“ƒ_ƒŠƒ“ƒO
-	virtual void RenderEdge( void );				// —ÖŠs•`‰æ
-	virtual void InitBuffer( void );				// ƒoƒbƒtƒ@‰Šú‰»
-	virtual void RefreshVertex( void );				// ’¸“_ƒf[ƒ^XV
-	virtual void RefreshIndex( void );				// ƒCƒ“ƒfƒbƒNƒXƒf[ƒ^XV
-	virtual void SetEdgeColor( D3DCOLOR color );	// —ÖŠsüF
+	virtual void ComputeNormal( void );				// æ³•ç·šç®—å‡º
+	virtual void ComputeBox( void );				// ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹
+	virtual void ComputeAdjancy( void );			// éš£æ¥é¢ãƒ‡ãƒ¼ã‚¿å–å¾—
+	virtual void Render( void );					// ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
+	virtual void RenderEdge( void );				// è¼ªéƒ­æç”»
+	virtual void InitBuffer( void );				// ãƒãƒƒãƒ•ã‚¡åˆæœŸåŒ–
+	virtual void RefreshVertex( void );				// é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿æ›´æ–°
+	virtual void RefreshIndex( void );				// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ‡ãƒ¼ã‚¿æ›´æ–°
+	virtual void SetEdgeColor( D3DCOLOR color );	// è¼ªéƒ­ç·šè‰²
 	virtual void ComputeVertexLighting( long num, LVECTOR *pdir, D3DCOLOR *pcolor, BOOL bMaterial );
-	virtual void SetVertexColor( D3DCOLOR color );	// ’¸“_ƒJƒ‰[İ’è
+	virtual void SetVertexColor( D3DCOLOR color );	// é ‚ç‚¹ã‚«ãƒ©ãƒ¼è¨­å®š
 	virtual void SetTexture( LTEXTURE tex, long material );
 	virtual void SetDiffuse( float a, float r, float g, float b,  long material );
 	virtual void SetAmbient( float r, float g, float b, long material );
@@ -1592,7 +1591,7 @@ protected:
 };*/
 
 //=====================================================================
-// ƒtƒŒ[ƒ€ƒNƒ‰ƒX
+// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¯ãƒ©ã‚¹
 //=====================================================================
 /*class CFRAME : public CListBase
 {
@@ -1600,17 +1599,17 @@ protected:
 	friend class LunaModel;
 
 protected:
-	char Name[64];		// ƒtƒŒ[ƒ€–¼
+	char Name[64];		// ãƒ•ãƒ¬ãƒ¼ãƒ å
 
-    LMATRIX TransMatrix;		// ƒyƒAƒŒƒ“ƒg—p•ÏŠ·s—ñ
-    LMATRIX TempMatrix;			// ˆê•ÏŠ·Ši”[—ps—ñ
+    LMATRIX TransMatrix;		// ãƒšã‚¢ãƒ¬ãƒ³ãƒˆç”¨å¤‰æ›è¡Œåˆ—
+    LMATRIX TempMatrix;			// ä¸€æ™‚å¤‰æ›æ ¼ç´ç”¨è¡Œåˆ—
 
-	CList ParentFrames;			// ƒtƒŒ[ƒ€ƒŠƒXƒg
-	CList Models;				// ƒ‚ƒfƒ‹ƒŠƒXƒg
+	CList ParentFrames;			// ãƒ•ãƒ¬ãƒ¼ãƒ ãƒªã‚¹ãƒˆ
+	CList Models;				// ãƒ¢ãƒ‡ãƒ«ãƒªã‚¹ãƒˆ
 
 	CFRAME *lpAnimeFrame;
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“ƒf[ƒ^
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ¼ã‚¿
 	DWORD RotKeyNum;
 	DWORD ScaleKeyNum;
 	DWORD TransKeyNum;
@@ -1621,7 +1620,7 @@ protected:
 	KEYMATRIX*		lpMatrix;
 
 	//===========================================================================
-	// ƒƒ“ƒoŠÖ”
+	// ãƒ¡ãƒ³ãƒé–¢æ•°
 	//===========================================================================
 	CFRAME();
 	virtual ~CFRAME();
@@ -1629,7 +1628,7 @@ protected:
 	virtual void Render( void );
 	virtual void UpdateFrames( LMATRIX *pmat, float time );
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“—pƒ}ƒgƒŠƒbƒNƒX
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ãƒãƒˆãƒªãƒƒã‚¯ã‚¹
 	virtual LMATRIX *GetRotateMatrix( float time );
 	virtual LMATRIX *GetScaleMatrix( float time );
 	virtual LMATRIX *GetPositionMatrix( float time );
@@ -1637,32 +1636,32 @@ protected:
 };*/
 
 //=====================================================================
-// ƒ‚ƒfƒ‹ƒNƒ‰ƒX
+// ãƒ¢ãƒ‡ãƒ«ã‚¯ãƒ©ã‚¹
 //=====================================================================
 /*class LunaModel : public CListBase
 {
 	friend class CMESH;
 
 protected:
-	LVECTOR Center;							// ƒƒbƒVƒ…‚Ì’†S
+	LVECTOR Center;							// ãƒ¡ãƒƒã‚·ãƒ¥ã®ä¸­å¿ƒ
 
-	// s—ñ
+	// è¡Œåˆ—
 	LMATRIX TransformMatrix;
 	LSTYLE Style;
 
-	// ƒf[ƒ^
-	CList AnimeFrames;						// ƒAƒjƒ[ƒVƒ‡ƒ“—pƒtƒŒ[ƒ€
-	CFRAME *lpMasterFrame;					// ‘åŒ³‚ÌƒtƒŒ[ƒ€
-	CFRAME **lpFrameData;					// ƒtƒŒ[ƒ€ƒŠƒXƒg—p
-	unsigned long FrameCount;				// ƒtƒŒ[ƒ€”
-	CMESH **lpMeshData;						// ƒ‚ƒfƒ‹ƒŠƒXƒg—p
-	unsigned long MeshCount;				// ƒ‚ƒfƒ‹”
+	// ãƒ‡ãƒ¼ã‚¿
+	CList AnimeFrames;						// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ãƒ•ãƒ¬ãƒ¼ãƒ 
+	CFRAME *lpMasterFrame;					// å¤§å…ƒã®ãƒ•ãƒ¬ãƒ¼ãƒ 
+	CFRAME **lpFrameData;					// ãƒ•ãƒ¬ãƒ¼ãƒ ãƒªã‚¹ãƒˆç”¨
+	unsigned long FrameCount;				// ãƒ•ãƒ¬ãƒ¼ãƒ æ•°
+	CMESH **lpMeshData;						// ãƒ¢ãƒ‡ãƒ«ãƒªã‚¹ãƒˆç”¨
+	unsigned long MeshCount;				// ãƒ¢ãƒ‡ãƒ«æ•°
 
-	// ƒŒƒ“ƒ_ƒŠƒ“ƒOƒXƒe[ƒg
-	BOOL IsStateChange;						// ƒXƒe[ƒg‚Ì•ÏX—L–³
-	long RenderState[sizeof_RenderState];	// ƒXƒe[ƒg
+	// ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚¹ãƒ†ãƒ¼ãƒˆ
+	BOOL IsStateChange;						// ã‚¹ãƒ†ãƒ¼ãƒˆã®å¤‰æ›´æœ‰ç„¡
+	long RenderState[sizeof_RenderState];	// ã‚¹ãƒ†ãƒ¼ãƒˆ
 
-	// ‚wƒtƒ@ƒCƒ‹“Ç‚İ‚İ—p
+	// ï¼¸ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ç”¨
 	virtual BOOL Load( char *file );
 	virtual void LoadFrame( LPDIRECTXFILEDATA lpdxfd, CFRAME *lpParentFrame );
 	virtual void LoadMesh( LPDIRECTXFILEDATA lpdxfd, CFRAME *lpParentFrame );
@@ -1676,7 +1675,7 @@ protected:
 	virtual void CreateMeshList( CFRAME *pf );
 	virtual void CreateDataList( void );
 
-	// Šeíİ’è
+	// å„ç¨®è¨­å®š
 	virtual void SetStateChange( BOOL flag );
 	virtual void ComputeCenter( CFRAME *pf, LMATRIX *pMat );
 
@@ -1693,7 +1692,7 @@ public:
 	static void ResetAll( void );
 	static void RestoreAll( void );
 
-	// ƒ‚ƒfƒ‹ƒf[ƒ^¶¬ŠÖ˜A
+	// ãƒ¢ãƒ‡ãƒ«ãƒ‡ãƒ¼ã‚¿ç”Ÿæˆé–¢é€£
 	static LMODEL LoadXFile( char *file, char *tex = NULL );
 	static LMODEL CreatePlaneXY( long x, long y, float sx, float sy, float addr );
 	static LMODEL CreatePlaneYZ( long y, long z, float sy, float sz, float addr );
@@ -1701,10 +1700,10 @@ public:
 	static LMODEL CreateCube( float sx, float sy, float sz, long x, long y, long z );
 	static LMODEL CreateSphere( float radius, long slices, long stacks );
 
-	// ƒŒƒ“ƒ_ƒŠƒ“ƒO
+	// ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
 	virtual void Render( void );
 
-	// •ÏŠ·ŠÖŒW
+	// å¤‰æ›é–¢ä¿‚
 	virtual void InitTransform( void );
 	virtual void DynamicTransform( float time = 0 );
 	virtual void Translation( float px, float py, float pz );
@@ -1723,13 +1722,13 @@ public:
 	virtual void RotationAxis( long no, float rot, LVECTOR *pvec );
 	virtual void Scaling( long no, float sx, float sy, float sz );
 
-	// •ÏŠ·s—ñ
+	// å¤‰æ›è¡Œåˆ—
 	virtual void GetMatrix( LMATRIX *mat );
 	virtual void SetMatrix( LMATRIX *mat );
 	virtual void GetMatrix( long no, LMATRIX *mat );
 	virtual void SetMatrix( long no, LMATRIX *mat );
 
-	// p¨§Œä
+	// å§¿å‹¢åˆ¶å¾¡
 	virtual void InitStyle( LVECTOR *pfront = NULL, LVECTOR *pup = NULL, LVECTOR *pright = NULL );
 	virtual void SetStyle( LSTYLE *pStyle );
 	virtual void GetStyle( LSTYLE *pStyle );
@@ -1738,34 +1737,34 @@ public:
 	virtual void StyleHeading( float angle );
 	virtual void StyleTransform( void );
 
-	// ƒvƒƒWƒFƒNƒVƒ‡ƒ“ƒJƒŠƒ“ƒO
+	// ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ã‚«ãƒªãƒ³ã‚°
 	virtual void SetProjCulling( BOOL flag );
 
-	// ƒŒƒ“ƒ_[ƒXƒe[ƒgİ’è
+	// ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¹ãƒ†ãƒ¼ãƒˆè¨­å®š
 	virtual void SetStateChangeLevel( long lv );
 	virtual void SetRenderState( eRenderState state, long param );
 	virtual void SetRenderState( eRenderState state, long param, long mesh = -1, long material = -1 );
 
-	// Šeíİ’è
+	// å„ç¨®è¨­å®š
 	virtual void SetDrawBox( BOOL flag, D3DCOLOR color, long mesh = -1 );
 	virtual void SetDrawEdge( BOOL flag, D3DCOLOR color, long mesh = -1 );
 
-	// ’¸“_ƒJƒ‰[
+	// é ‚ç‚¹ã‚«ãƒ©ãƒ¼
 	virtual void SetVertexColor( D3DCOLOR color, long mesh = -1 );
 	virtual void ComputeVertexLighting( long num, LVECTOR *pdir, D3DCOLOR *pcolor, BOOL bMaterial = FALSE, long mesh = -1 );
 
-	// ¿Š´
+	// è³ªæ„Ÿ
 	virtual void SetTexture( LTEXTURE tex, long mesh = -1, long material = -1 );
 	virtual void SetDiffuse( float a, float r, float g, float b, long mesh = -1, long material = -1 );
 	virtual void SetAmbient( float r, float g, float b, long mesh = -1, long material = -1 );
 	virtual void SetSpecular( float r, float g, float b, long mesh = -1, long material = -1 );
 	virtual void SetEmissive( float r, float g, float b, long mesh = -1, long material = -1 );
 
-	// UVŠÖŒW
+	// UVé–¢ä¿‚
 	virtual void ComputePlanerUV( eAxisUV axis, long mesh = -1 );
 	virtual void ComputeSphereUV( eAxisUV axis, long mesh = -1 );
 
-	// ƒf[ƒ^æ“¾
+	// ãƒ‡ãƒ¼ã‚¿å–å¾—
 	virtual void GetWorldPosition( LVECTOR *pos, long mesh = -1 );
 	virtual void GetCameraPosition( LVECTOR *pos, long mesh = -1 );
 	virtual void GetScreenPosition( LVECTOR *ppos, long mesh = -1 );
@@ -1774,7 +1773,7 @@ public:
 
 
 //==========================================================================
-// ƒI[ƒfƒBƒIƒNƒ‰ƒX
+// ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚¯ãƒ©ã‚¹
 //==========================================================================
 /*class LunaMusic : public CListBase
 {
@@ -1782,7 +1781,7 @@ protected:
 	IDirectMusicPerformance8	*lpPerformance;
 	IDirectMusicSegment8		*lpSegment;
 	long ChannelNo;
-	BOOL bLoad, bPlay, bLoop, bPause;				// ƒtƒ‰ƒO
+	BOOL bLoad, bPlay, bLoop, bPause;				// ãƒ•ãƒ©ã‚°
 
 	static BOOL SelectPort( long port_no );
 
@@ -1798,8 +1797,8 @@ public:
 	void Play( BOOL loop );
 	void Stop( void );
 
-	static void SetVolume( long param );			// ƒ{ƒŠƒ…[ƒ€•ÏX
-	static void SetPan( long param );				// ƒpƒ“ˆÚ“®
+	static void SetVolume( long param );			// ãƒœãƒªãƒ¥ãƒ¼ãƒ å¤‰æ›´
+	static void SetPan( long param );				// ãƒ‘ãƒ³ç§»å‹•
 };*/
 
 //==========================================================================
@@ -1834,12 +1833,12 @@ public:
 };*/
 
 //==========================================================================
-// ƒTƒEƒ“ƒhƒNƒ‰ƒX
+// ã‚µã‚¦ãƒ³ãƒ‰ã‚¯ãƒ©ã‚¹
 //==========================================================================
 class LunaSound : public CListBase
 {
 protected:
-	//IDirectSoundBuffer8			*lpSoundBuffer;		// ƒTƒEƒ“ƒhƒoƒbƒtƒ@
+	//IDirectSoundBuffer8			*lpSoundBuffer;		// ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡
 	void						*lpSoundBuffer;
 	BOOL						bLoad;
 	BOOL						bPlay;
@@ -1850,15 +1849,15 @@ protected:
 	virtual long GetChunk( unsigned char *pData, unsigned char *&lpData, unsigned long *lpSize );
 	virtual long CheckWaveData( unsigned char *lpFormat, void *lpwf );*/
 
-	LunaSound();									// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	virtual ~LunaSound();							// ƒfƒXƒgƒ‰ƒNƒ^
+	LunaSound();									// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	virtual ~LunaSound();							// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	/*virtual void LoadWave( char *file );*/
 	virtual void LoadWave( const char *pack, const char *data );
 
 
 public:
-	static BOOL Init( void );						// ‰Šú‰»
-	static void UnInit( void );						// I—¹
+	static BOOL Init( void );						// åˆæœŸåŒ–
+	static void UnInit( void );						// çµ‚äº†
 	/*static BOOL InitDirectSound( LPDIRECTSOUND8 *lpDS, LPDIRECTSOUNDBUFFER *lpDSB );
 
 	static IDirectSound8 *GetDirectSound( void );
@@ -1866,24 +1865,24 @@ public:
 	//static LSOUND Load( char *pack, char *data );
 	static LSOUND Load( const char *pack, const char *data );
 
-	// ŠeíŠÖ”
-	virtual void Play( BOOL loop = FALSE );			// Ä¶
-	virtual void Stop( void );						// ’â~
-	/*virtual BOOL IsPlay( void );					// Ä¶ƒ`ƒFƒbƒN
-	virtual void Pause( void );						// ˆê’â~
-	virtual void SetVolume( long param );			// ƒ{ƒŠƒ…[ƒ€•ÏX
-	virtual void SetPan( long param );				// ƒpƒ“ˆÚ“®
+	// å„ç¨®é–¢æ•°
+	virtual void Play( BOOL loop = FALSE );			// å†ç”Ÿ
+	virtual void Stop( void );						// åœæ­¢
+	/*virtual BOOL IsPlay( void );					// å†ç”Ÿãƒã‚§ãƒƒã‚¯
+	virtual void Pause( void );						// ä¸€æ™‚åœæ­¢
+	virtual void SetVolume( long param );			// ãƒœãƒªãƒ¥ãƒ¼ãƒ å¤‰æ›´
+	virtual void SetPan( long param );				// ãƒ‘ãƒ³ç§»å‹•
 
-	// ƒGƒtƒFƒNƒgŠÖ˜A
-	virtual void DeleteFx( void );					// ƒGƒtƒFƒNƒgíœ
-	virtual void SetReverb( eReverbParam param );	// ƒŠƒo[ƒuƒGƒtƒFƒNƒg
-	virtual void SetEcho( void );					// ƒGƒR[ƒGƒtƒFƒNƒg
-	virtual void SetChorus( void );					// ƒR[ƒ‰ƒXƒGƒtƒFƒNƒg
-	virtual void SetCompressor( void );				// ƒRƒ“ƒvƒŒƒbƒbƒVƒ‡ƒ“ƒGƒtƒFƒNƒg
-	virtual void SetDistortion( void );				// ƒfƒBƒXƒg[ƒVƒ‡ƒ“ƒGƒtƒFƒNƒg
-	virtual void SetFlanger( void );				// ƒtƒ‰ƒ“ƒWƒGƒtƒFƒNƒg
-	virtual void SetGargle( void );					// ƒK[ƒOƒ‹ƒGƒtƒFƒNƒg
-	virtual void SetParamEQ( void );				// ƒpƒ‰ƒƒgƒŠƒbƒNEƒCƒRƒ‰ƒCƒUƒGƒtƒFƒNƒg*/
+	// ã‚¨ãƒ•ã‚§ã‚¯ãƒˆé–¢é€£
+	virtual void DeleteFx( void );					// ã‚¨ãƒ•ã‚§ã‚¯ãƒˆå‰Šé™¤
+	virtual void SetReverb( eReverbParam param );	// ãƒªãƒãƒ¼ãƒ–ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+	virtual void SetEcho( void );					// ã‚¨ã‚³ãƒ¼ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+	virtual void SetChorus( void );					// ã‚³ãƒ¼ãƒ©ã‚¹ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+	virtual void SetCompressor( void );				// ã‚³ãƒ³ãƒ—ãƒ¬ãƒƒãƒƒã‚·ãƒ§ãƒ³ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+	virtual void SetDistortion( void );				// ãƒ‡ã‚£ã‚¹ãƒˆãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+	virtual void SetFlanger( void );				// ãƒ•ãƒ©ãƒ³ã‚¸ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+	virtual void SetGargle( void );					// ã‚¬ãƒ¼ã‚°ãƒ«ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+	virtual void SetParamEQ( void );				// ãƒ‘ãƒ©ãƒ¡ãƒˆãƒªãƒƒã‚¯ãƒ»ã‚¤ã‚³ãƒ©ã‚¤ã‚¶ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ*/
 };
 
 
@@ -1961,7 +1960,7 @@ public:
 
 
 //======================================================================
-// ƒT[ƒtƒFƒCƒXƒNƒ‰ƒX
+// ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚¯ãƒ©ã‚¹
 //======================================================================
 class LunaSurface : public CListBase
 {
@@ -2015,7 +2014,7 @@ public:
 
 
 //======================================================================
-// ƒeƒNƒXƒ`ƒƒƒNƒ‰ƒX
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚¯ãƒ©ã‚¹
 //======================================================================
 class LunaTexture : public CListBase
 {
@@ -2091,7 +2090,7 @@ public:
 
 
 //==========================================================================
-// ƒVƒXƒeƒ€ƒNƒ‰ƒX
+// ã‚·ã‚¹ãƒ†ãƒ ã‚¯ãƒ©ã‚¹
 //==========================================================================
 class LunaSystem
 {
