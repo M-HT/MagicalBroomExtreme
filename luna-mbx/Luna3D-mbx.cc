@@ -292,6 +292,30 @@ BOOL Luna3D::Create3DDevice( void )
             featureDrawTexture = false;
         }
     }
+
+#ifdef PANDORA
+    if (featureDrawTexture)
+    {
+        FILE *f;
+        int v0, v1, v2, v3, v4;
+
+        featureDrawTexture = false;
+
+        f = fopen("/proc/pvr/version", "rt");
+        if (f != NULL)
+        {
+            v0 = fscanf(f, "Version %i.%i.%i.%i", &v1, &v2, &v3, &v4);
+            fclose(f);
+        }
+        else v0 = 0;
+
+        if ((v0 == 4) && (v1 == 1) && (v2 == 4) && (v3 == 14) && ((v4 == 2514) || (v4 == 2616)))
+        {
+            featureDrawTexture = true;
+        }
+    }
+#endif
+
 #else
     glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC) SDL_GL_GetProcAddress("glGenerateMipmap");
 
