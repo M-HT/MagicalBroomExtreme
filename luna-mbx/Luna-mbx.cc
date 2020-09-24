@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <cstdarg>
 #include <cstring>
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     #define WIN32_LEAN_AND_MEAN
     #include <windows.h>
 #else
@@ -288,7 +288,7 @@ int Luna::Drive2( int argc, char *argv[] )
 {
     SDL_Event event;
 
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     GetModuleFileNameA(NULL, Directory, 256);
 #else
     const char *pathname;
@@ -320,7 +320,7 @@ int Luna::Drive2( int argc, char *argv[] )
         Directory[dirlen] = 0;
     }
 
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     SetCurrentDirectoryA(Directory);
 #else
     chdir(Directory);
@@ -412,7 +412,7 @@ int Luna::Drive2( int argc, char *argv[] )
 
 void Luna::SetLogFile ( const char *file )
 {
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     if ( file[1] == ':' )
     {
         strcpy(LogFile, file);

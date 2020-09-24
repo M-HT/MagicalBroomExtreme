@@ -1,6 +1,6 @@
 #include "Luna-mbx.h"
 
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     #define WIN32_LEAN_AND_MEAN
     #include <windows.h>
 #else
@@ -78,7 +78,7 @@ BOOL LunaSystem::LoadData( const char *file, void *pData, unsigned long size )
 
 void LunaSystem::SetShowIME( BOOL flag )
 {
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     WINNLSEnableIME(0, flag);
 #else
     // do nothing
@@ -87,7 +87,7 @@ void LunaSystem::SetShowIME( BOOL flag )
 
 BOOL LunaSystem::FileExist( const char *file )
 {
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     struct _WIN32_FIND_DATAA FindFileData;
 
     HANDLE FindFileHandle = FindFirstFileA(file, &FindFileData);

@@ -1,6 +1,6 @@
 #include "Luna-mbx.h"
 
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     #define WIN32_LEAN_AND_MEAN
     #include <windows.h>
 #endif
@@ -16,7 +16,7 @@ static long AtanTable[ATANTABLE_SIZE];
 
 void LunaMath::Init( void )
 {
-#if (defined(_WIN32) || defined(__WIN32__) || (__WINDOWS__))
+#if (defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__))
     srand(time(0) * timeGetTime());
 #else
     time_t t0 = time(0);
